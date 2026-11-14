@@ -1,70 +1,35 @@
-# Smart Grocery Store Management System
+# 🛒 Smart Grocery Store Management System
 
-A menu-driven Python console application that helps a local grocery store owner manage products, prices, stock levels and customer sales. All data is kept in memory using **lists of dictionaries**.
+![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python&logoColor=white)
+![Level](https://img.shields.io/badge/Level-Beginner-green)
+![Topics](https://img.shields.io/badge/Topics-lists%20%7C%20dictionaries%20%7C%20functions-orange)
 
----
+## 📌 Project Overview
 
-## Table of Contents
+This repository contains a console-based Python application that helps a local grocery store owner keep track of **products, prices, available stock and sales**. All data is stored in memory using **lists of dictionaries**, and the program runs from a menu until the user chooses to exit.
 
-1. [Features](#features)
-2. [Requirements](#requirements)
-3. [How to Run](#how-to-run)
-4. [Application Menu](#application-menu)
-5. [Data Structures](#data-structures)
-6. [Functions Overview](#functions-overview)
-7. [Input Validation](#input-validation)
-8. [Sample Session](#sample-session)
-9. [Project Structure](#project-structure)
-10. [Possible Improvements](#possible-improvements)
-11. [Author](#author)
+| # | Application | File | Main Topic |
+|---|-------------|------|------------|
+| 1 | Smart Grocery Store Management System | `grocery_store_system.py` | Lists, dictionaries, functions, loops |
 
----
+## 📁 Project Structure
 
-## Features
-
-| # | Feature | Description |
-|---|---------|-------------|
-| 1 | **Add New Product** | Enter ID, name, category, price and stock. The product is stored as a dictionary and added with `.append()`. Duplicate product IDs are rejected. |
-| 2 | **View All Products** | Displays every product in an aligned table (ID, name, category, price, stock). |
-| 3 | **Search Product** | Search by exact ID or by full/partial name (case-insensitive). Shows complete details, or a message if nothing is found. |
-| 4 | **Update Product Stock** | Add stock to the current quantity, or set a completely new quantity. Shows the updated stock. |
-| 5 | **Process Customer Sale** | Checks the product exists and has enough stock, calculates the total, deducts stock, records the sale and prints a purchase summary. |
-| 6 | **View Sales Records** | Lists every completed sale (product ID, name, quantity sold, total amount). |
-| 7 | **Generate Store Report** | Total products, total stock, total transactions, total revenue, low-stock products (below 5 units), and the highest and lowest priced products. |
-| 8 | **Exit** | Closes the program. |
-
----
-
-## Requirements
-
-- **Python 3.6 or higher** (uses f-strings)
-- No external libraries needed. Only the built-in `math` module is used.
-
----
-
-## How to Run
-
-1. Save the code as `grocery_store_system.py`.
-2. Open a terminal in the same folder.
-3. Run:
-
-```bash
-python grocery_store_system.py
+```
+smart-grocery-store-system/
+├── grocery_store_system.py
+└── README.md
 ```
 
-On some systems you may need to use `python3` instead:
-
-```bash
-python3 grocery_store_system.py
-```
-
-The program keeps running until you choose **8. Exit** (or press `Ctrl + C`).
-
 ---
 
-## Application Menu
+## 🏪 Smart Grocery Store Management System
 
-```text
+### Description
+A menu-driven application that lets the store owner add products, view and search inventory, update stock, process customer sales, review sales records and generate a store report.
+
+### Application Menu
+
+```
 ====================================
 SMART GROCERY STORE SYSTEM
 ====================================
@@ -81,106 +46,202 @@ SMART GROCERY STORE SYSTEM
 Enter your choice:
 ```
 
----
+### Data Structures
 
-## Data Structures
-
-### Products: list of dictionaries
+**Products** (list of dictionaries)
 
 ```python
 products = [
-    {"id": 101, "name": "Milk", "category": "Dairy", "price": 250, "stock": 20},
+    {"id": 101, "name": "Milk", "category": "Dairy", "price": 250, "stock": 20}
 ]
 ```
 
-| Key | Type | Meaning |
-|-----|------|---------|
-| `id` | `int` | Unique product ID |
-| `name` | `str` | Product name |
-| `category` | `str` | Product category |
-| `price` | `float` / `int` | Price per unit |
-| `stock` | `int` | Units currently available |
-
-### Sales: list of dictionaries
+**Sales records** (separate list of dictionaries)
 
 ```python
 sales = [
-    {"product_id": 101, "product_name": "Milk", "quantity_sold": 3, "total_amount": 750},
+    {"product_id": 101, "product_name": "Milk", "quantity_sold": 3, "total_amount": 750}
 ]
 ```
 
-| Key | Type | Meaning |
-|-----|------|---------|
-| `product_id` | `int` | ID of the product sold |
-| `product_name` | `str` | Name of the product sold |
-| `quantity_sold` | `int` | Units sold in this transaction |
-| `total_amount` | `float` / `int` | Price × quantity |
+| Product Key | Meaning | Sales Key | Meaning |
+|-------------|---------|-----------|---------|
+| `id` | Unique product ID | `product_id` | ID of the product sold |
+| `name` | Product name | `product_name` | Name of the product sold |
+| `category` | Product category | `quantity_sold` | Units sold |
+| `price` | Price per unit | `total_amount` | Price × quantity |
+| `stock` | Units available | | |
 
-> The program starts with five sample products so it can be tested immediately. To start with an empty store, change the list to `products = []`.
+> The program starts with 5 sample products so it can be tested immediately. To start with an empty store, set `products = []`.
 
----
+### Features
 
-## Functions Overview
+| # | Feature | What it does |
+|---|---------|--------------|
+| 1 | ➕ Add New Product | Collects ID, name, category, price and stock, then adds the dictionary with `.append()`. **Duplicate IDs are rejected.** |
+| 2 | 📋 View All Products | Shows every product in an aligned table. |
+| 3 | 🔍 Search Product | Finds a product by **ID** or by **full/partial name** (case-insensitive) and shows complete details. |
+| 4 | 📦 Update Product Stock | **Adds** stock to the current quantity or **sets** a new quantity, then shows the updated stock. |
+| 5 | 💰 Process Customer Sale | Checks the product exists and has enough stock, calculates the total, deducts stock and prints a purchase summary. |
+| 6 | 🧾 View Sales Records | Lists every completed sale with a running number. |
+| 7 | 📊 Generate Store Report | Totals, low-stock products and highest/lowest priced products. |
+| 8 | 🚪 Exit | Ends the program. |
 
-### Input helpers
+### Store Report Includes
+- Total number of products
+- Total available stock
+- Total sales transactions
+- Total revenue generated
+- Products with stock **below 5 units**
+- Product with the **highest price**
+- Product with the **lowest price**
 
-| Function | Purpose |
-|----------|---------|
-| `get_text(prompt)` | Keeps asking until the user enters non-empty text. |
-| `get_int(prompt, minimum)` | Keeps asking until the user enters a valid whole number (optionally at or above a minimum). |
-| `get_price(prompt)` | Keeps asking until the user enters a valid price greater than zero. |
-| `find_product_by_id(product_id)` | Loops through `products` and returns the matching dictionary, or `None`. |
+### Concepts Used
+`list`, `dict`, `.append()`, custom functions with parameters and `return`, `while True` loop, `for` loop, `enumerate()`, `if / elif / else`, `try / except`, comparison and logical operators, f-string formatting (`:.2f`, `:<10`, `:>12`), string methods (`.strip()`, `.lower()`, `.isdigit()`), constants (`LOW_STOCK_LIMIT`), `math.isfinite()`, `if __name__ == "__main__"`
 
-### Display helpers
-
-| Function | Purpose |
-|----------|---------|
-| `print_product_table(product_list)` | Prints products as an aligned table. |
-| `print_product_details(product)` | Prints all fields of a single product. |
-
-### Menu features
-
-| Function | Menu option |
-|----------|-------------|
-| `add_product()` | 1: Add New Product |
-| `view_products()` | 2: View All Products |
-| `search_product()` | 3: Search Product |
-| `update_stock()` | 4: Update Product Stock |
-| `process_sale()` | 5: Process Customer Sale |
-| `view_sales_records()` | 6: View Sales Records |
-| `generate_report()` | 7: Generate Store Report |
-
-### Program control
+### Functions Overview
 
 | Function | Purpose |
 |----------|---------|
-| `show_menu()` | Prints the main menu. |
-| `main()` | Runs the menu loop until the user exits. |
+| `get_text()` | Asks until the user enters non-empty text |
+| `get_int()` | Asks until the user enters a valid whole number (with optional minimum) |
+| `get_price()` | Asks until the user enters a valid price greater than zero |
+| `find_product_by_id()` | Loops through products and returns the match, or `None` |
+| `print_product_table()` | Prints products as an aligned table |
+| `print_product_details()` | Prints all details of one product |
+| `add_product()` | Menu option 1 |
+| `view_products()` | Menu option 2 |
+| `search_product()` | Menu option 3 |
+| `update_stock()` | Menu option 4 |
+| `process_sale()` | Menu option 5 |
+| `view_sales_records()` | Menu option 6 |
+| `generate_report()` | Menu option 7 |
+| `show_menu()` | Prints the main menu |
+| `main()` | Runs the menu loop until exit |
+
+### ▶️ How to Run
+```bash
+python grocery_store_system.py
+```
+
+On some systems use `python3` instead of `python`.
 
 ---
 
-## Input Validation
+## 🖥️ Sample Execution
 
-The program handles invalid input without crashing:
+**✅ Add a New Product**
+```
+--- ADD NEW PRODUCT ---
+Enter Product ID: 106
+Enter Product Name: Soap
+Enter Category: Hygiene
+Enter Price: 150
+Enter Available Stock: 12
+  Success: 'Soap' has been added to the store.
+```
 
-- **Empty text:** rejected, and the user is asked again.
-- **Non-numeric values** where a number is expected (ID, price, stock, quantity): rejected with an error message.
-- **Negative or zero values:** price must be greater than zero; stock may be `0` or more; sale and stock-addition quantities must be at least `1`.
-- **Special float values** such as `nan` and `inf`: rejected as invalid prices.
-- **Duplicate product IDs:** the new product is not added.
-- **Unknown product IDs:** an error message is shown for updates and sales.
-- **Insufficient stock:** the sale is denied and stock is left unchanged.
-- **Out-of-stock products:** cannot be sold.
-- **Invalid menu choice:** an error message is shown and the menu is displayed again.
-- **Empty store:** the report and product views handle having no products without crashing.
+**❌ Duplicate Product ID**
+```
+--- ADD NEW PRODUCT ---
+Enter Product ID: 101
+  Error: a product with ID 101 already exists.
+```
 
----
+**⚠️ Invalid Input While Adding**
+```
+--- ADD NEW PRODUCT ---
+Enter Product ID: abc
+  Error: please enter a valid whole number.
+Enter Product ID: 107
+Enter Product Name: Tea
+Enter Category: Beverages
+Enter Price: abc
+  Error: please enter a valid number (e.g. 250 or 99.50).
+Enter Price: -5
+  Error: price must be a number greater than zero.
+Enter Price: 300
+Enter Available Stock: -3
+  Error: the value must be at least 0.
+Enter Available Stock: 10
+  Success: 'Tea' has been added to the store.
+```
 
-## Sample Session
+**📋 View All Products**
+```
+--- ALL PRODUCTS ---
+ID      Name              Category          Price   Stock
+---------------------------------------------------------
+101     Milk              Dairy            250.00      20
+102     Bread             Bakery           120.00      15
+103     Eggs (Dozen)      Dairy            380.00       4
+104     Basmati Rice 1kg  Grains           450.00      30
+105     Cooking Oil 1L    Pantry           520.00       3
+106     Soap              Hygiene          150.00      12
+107     Tea               Beverages        300.00      10
+```
 
-### Processing a sale
+**🔍 Search by ID**
+```
+--- SEARCH PRODUCT ---
+Enter Product ID or Name: 101
 
-```text
+  Found 1 matching product(s):
+
+  Product ID : 101
+  Name       : Milk
+  Category   : Dairy
+  Price      : 250.00
+  Stock      : 20 units
+```
+
+**🔍 Search by Name (partial, case-insensitive)**
+```
+--- SEARCH PRODUCT ---
+Enter Product ID or Name: eggs
+
+  Found 1 matching product(s):
+
+  Product ID : 103
+  Name       : Eggs (Dozen)
+  Category   : Dairy
+  Price      : 380.00
+  Stock      : 4 units
+```
+
+**❌ Product Not Found**
+```
+--- SEARCH PRODUCT ---
+Enter Product ID or Name: xyz
+  No product found matching 'xyz'.
+```
+
+**📦 Update Stock: Add Quantity**
+```
+--- UPDATE PRODUCT STOCK ---
+Enter Product ID: 103
+  Product: Eggs (Dozen) | Current stock: 4
+  1. Add stock to the current quantity
+  2. Set stock to a new quantity
+  Choose an option (1/2): 1
+  Enter quantity to add: 10
+  Stock updated! Eggs (Dozen) now has 14 units.
+```
+
+**📦 Update Stock: Set New Quantity**
+```
+--- UPDATE PRODUCT STOCK ---
+Enter Product ID: 104
+  Product: Basmati Rice 1kg | Current stock: 30
+  1. Add stock to the current quantity
+  2. Set stock to a new quantity
+  Choose an option (1/2): 2
+  Enter new stock quantity: 25
+  Stock updated! Basmati Rice 1kg now has 25 units.
+```
+
+**✅ Successful Sale**
+```
 --- PROCESS CUSTOMER SALE ---
 Enter Product ID: 101
 Enter quantity to buy (available: 20): 3
@@ -194,38 +255,66 @@ Enter quantity to buy (available: 20): 3
   ----------------------------
 ```
 
-### Sale denied (not enough stock)
-
-```text
+**❌ Sale Denied (Not Enough Stock)**
+```
 --- PROCESS CUSTOMER SALE ---
-Enter Product ID: 101
-Enter quantity to buy (available: 20): 50
-  Sale denied: only 20 unit(s) of 'Milk' available, but 50 requested.
+Enter Product ID: 102
+Enter quantity to buy (available: 15): 50
+  Sale denied: only 15 unit(s) of 'Bread' available, but 50 requested.
 ```
 
-### Viewing all products
-
-```text
---- ALL PRODUCTS ---
-ID      Name              Category          Price   Stock
----------------------------------------------------------
-101     Milk              Dairy            250.00      20
-102     Bread             Bakery           120.00      15
-103     Eggs (Dozen)      Dairy            380.00       4
-104     Basmati Rice 1kg  Grains           450.00      30
-105     Cooking Oil 1L    Pantry           520.00       3
+**❌ Out of Stock**
+```
+--- PROCESS CUSTOMER SALE ---
+Enter Product ID: 105
+  Sorry, 'Cooking Oil 1L' is out of stock.
 ```
 
-### Store report
+**❌ Unknown Product ID**
+```
+--- PROCESS CUSTOMER SALE ---
+Enter Product ID: 777
+  Error: no product found with ID 777.
+```
 
-```text
+**⚠️ Invalid Quantity**
+```
+--- PROCESS CUSTOMER SALE ---
+Enter Product ID: 102
+Enter quantity to buy (available: 15): 0
+  Error: the value must be at least 1.
+Enter quantity to buy (available: 15): abc
+  Error: please enter a valid whole number.
+Enter quantity to buy (available: 15): 2
+
+  ----- PURCHASE SUMMARY -----
+  Product    : Bread (ID 102)
+  Unit Price : 120.00
+  Quantity   : 2
+  Total      : 240.00
+  Remaining stock: 13 units
+  ----------------------------
+```
+
+**🧾 View Sales Records**
+```
+--- SALES RECORDS ---
+No.   Product ID  Product Name              Qty Sold    Total Amount
+--------------------------------------------------------------------
+1     101         Milk                             3          750.00
+2     105         Cooking Oil 1L                   3         1560.00
+3     102         Bread                            2          240.00
+```
+
+**📊 Store Report**
+```
 ====================================
           STORE REPORT
 ====================================
-Total number of products : 6
-Total available stock    : 79 units
-Total sales transactions : 2
-Total revenue generated  : 2310.00
+Total number of products : 7
+Total available stock    : 91 units
+Total sales transactions : 3
+Total revenue generated  : 2550.00
 
 Products with stock below 5 units:
   - Cooking Oil 1L (ID 105): 0 left
@@ -235,28 +324,61 @@ Lowest priced product  : Bread (120.00)
 ====================================
 ```
 
----
+**⚠️ Empty Store**
+```
+--- ALL PRODUCTS ---
+  No products available yet.
 
-## Project Structure
+--- SALES RECORDS ---
+  No sales have been made yet.
 
-```text
-grocery-store-system/
-├── grocery_store_system.py   # Main application
-└── README.md                 # Project documentation
+====================================
+          STORE REPORT
+====================================
+Total number of products : 0
+Total available stock    : 0 units
+Total sales transactions : 0
+Total revenue generated  : 0.00
+
+Products with stock below 5 units:
+  None - all products are sufficiently stocked.
+
+No products available to compare prices.
+====================================
 ```
 
 ---
 
-## Possible Improvements
+## 🧪 Testing Summary
 
-- Save and load products and sales from a JSON or CSV file so data persists between runs.
-- Add a feature to delete or edit product details (name, price, category).
-- Support multiple items in a single customer sale (a shopping cart).
-- Record the date and time of each sale.
-- Add a bill or receipt export.
+| Feature | Scenario Tested | Result |
+|---------|-----------------|--------|
+| Add Product | Valid product added with `.append()` | ✅ |
+| Add Product | Duplicate product ID rejected | ✅ |
+| Add Product | Empty / non-numeric / negative / zero input rejected | ✅ |
+| View Products | Aligned table of all products | ✅ |
+| View Products | Empty store message | ✅ |
+| Search | Search by ID | ✅ |
+| Search | Search by partial name (case-insensitive) | ✅ |
+| Search | Product not found message | ✅ |
+| Update Stock | Add quantity to current stock | ✅ |
+| Update Stock | Set a new stock quantity | ✅ |
+| Update Stock | Unknown product ID | ✅ |
+| Sale | Successful sale, total calculated, stock deducted | ✅ |
+| Sale | Quantity greater than stock denied | ✅ |
+| Sale | Out-of-stock product denied | ✅ |
+| Sale | Unknown product ID / invalid quantity | ✅ |
+| Sales Records | Sales recorded and listed | ✅ |
+| Report | Totals, revenue, low stock, highest/lowest price | ✅ |
+| Report | Empty store handled without crashing | ✅ |
+| Menu | Invalid menu choice handled; program runs until Exit | ✅ |
 
----
+## 🛠️ Requirements
 
-## Author
+- Python 3.x (3.6 or higher)
+- Any terminal and a code editor (VS Code, PyCharm, etc.)
+- No external libraries needed (only the built-in `math` module)
 
-**Usama Malik**
+## 👤 Author
+
+**Usama Malik** — Smart Grocery Store Management System
